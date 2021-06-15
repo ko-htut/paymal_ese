@@ -207,10 +207,10 @@ class DateSearchReport extends StatelessWidget {
                               hintStyle: TextStyle(color: Colors.black45),
                               errorStyle: TextStyle(color: Colors.redAccent),
                               border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.event_note),
-                              labelText: '06/12/2021',
+
+
                               contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                              isDense: true),
+                              isDense: false),
                           autovalidateMode: AutovalidateMode.always,
                         ),
                       ),

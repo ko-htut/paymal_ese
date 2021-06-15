@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
+import '../../../constants.dart';
 import '../../../responsive.dart';
 
 class SideMenu extends StatelessWidget {
@@ -12,17 +13,19 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final indexProvider=context.watch<DrawerIndexController>();
     return Drawer(
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/images/paymal_logo.png"),
           ),
           DrawerListTile(
             title: "Summary",
             svgSrc: "assets/icons/menu_dashbord.svg",
+            selected: indexProvider.index==0,
             press: () {
-              context.read<DrawerIndexController>().index = 0;
+              indexProvider.index = 0;
               if(!Responsive.isDesktop(context)) {
                 Navigator.pop(context);
               }
@@ -30,9 +33,10 @@ class SideMenu extends StatelessWidget {
           ),
           DrawerListTile(
             title: "Report",
+            selected: indexProvider.index==1,
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              context.read<DrawerIndexController>().index = 1;
+              indexProvider.index = 1;
               if(!Responsive.isDesktop(context)) {
                 Navigator.pop(context);
               }
@@ -51,24 +55,34 @@ class DrawerListTile extends StatelessWidget {
     required this.title,
     required this.svgSrc,
     required this.press,
+    required this.selected
   }) : super(key: key);
 
   final String title, svgSrc;
   final VoidCallback press;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: press,
-      horizontalTitleGap: 0.0,
-      leading: SvgPicture.asset(
-        svgSrc,
-        color: Colors.black,
-        height: 16,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: selected?headerColor:Colors.white
       ),
-      title: Text(
-        title,
-        style: TextStyle(color: Colors.black54),
+      margin: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
+      child: ListTile(
+        onTap: press,
+
+        horizontalTitleGap: 0.0,
+        leading: SvgPicture.asset(
+          svgSrc,
+          color:selected?Colors.white: Colors.black,
+          height: 16,
+        ),
+        title: Text(
+          title,
+          style: TextStyle(color:selected?Colors.white: Colors.black54),
+        ),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:admin/controllers/drawer_index_controller.dart';
 import 'package:admin/pie_chart/pie_chart.dart';
 import 'package:admin/screens/dashboard/components/date_search.dart';
 import 'package:admin/screens/dashboard/components/date_search_report.dart';
+import 'package:admin/screens/dashboard/components/report_table.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -60,7 +61,9 @@ class DashboardScreen extends StatelessWidget {
                 ],
               ):Container(child: Column(
                 children: [
-                  DateSearchReport()
+                  DateSearchReport(),
+                  SizedBox(height: 32,),
+                  Expanded(child: ReportTable())
                 ],
               ),),
             ),
