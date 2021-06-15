@@ -21,7 +21,7 @@ class SideMenu extends StatelessWidget {
             child: Image.asset("assets/images/paymal_logo.png"),
           ),
           DrawerListTile(
-            title: "Summary",
+            title: "Portal",
             svgSrc: "assets/icons/menu_dashbord.svg",
             selected: indexProvider.index==0,
             press: () {

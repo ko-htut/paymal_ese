@@ -1,4 +1,5 @@
 import 'package:admin/bar_chart/bar_chart.dart';
+import 'package:admin/bar_chart/bar_chart_day.dart';
 import 'package:admin/controllers/drawer_index_controller.dart';
 import 'package:admin/pie_chart/pie_chart.dart';
 import 'package:admin/screens/dashboard/components/date_search.dart';
@@ -30,30 +31,22 @@ class DashboardScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
                             child: Column(
                               children: [
-                                // RegionReport(),
-                                // SizedBox(height: defaultPadding),
-                                // // RecentFiles(),
-                                // if (Responsive.isMobile(context))
-                                //   SizedBox(height: defaultPadding),
-                                // if (Responsive.isMobile(context)) StarageDetails(),
                                 PieChartWidget()
                               ],
                             ),
                           ),
-                          // if (!Responsive.isMobile(context))
-                          //   SizedBox(width: defaultPadding),
-                          // // On Mobile means if the screen is less than 850 we dont want to show it
-                          // if (!Responsive.isMobile(context))
-                          //   Expanded(
-                          //     flex: 2,
-                          //     child: StarageDetails(),
-                          //   ),
-                          Expanded(child: BarChartWidget())
+                          Expanded(child: Column(
+                            children: [
+                              BarChartWidget(),
+                              SizedBox(height: 22,),
+                              BarChartDay(),
+                            ],
+                          ))
                         ],
                       ),
                     ),

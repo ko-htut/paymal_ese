@@ -3,27 +3,25 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class BarChartWidget extends StatefulWidget {
+class BarChartDay extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => BarChartWidgetState();
+  State<StatefulWidget> createState() => BarChartDayState();
 }
 
-class BarChartWidgetState extends State<BarChartWidget> {
-  final Color blue = const Color(0xff4371c3);
-  final Color orange = const Color(0xffec7d31);
-  final Color grey = const Color(0xffa4a4a4);
-  final formatter = NumberFormat('###,###');
+class BarChartDayState extends State<BarChartDay> {
+  final Color blue = const Color(0xff00bdef);
+  final Color orange = const Color(0xffffb647);
 
   @override
   Widget build(BuildContext context) {
 
     return AspectRatio(
-      aspectRatio:2,
+      aspectRatio: 2,
       child: Container(
         padding: const EdgeInsets.only(left: 32,right: 32),
         child: Column(
           children: [
-            Text('Monthly Total Amount by Corporate Report',style:TextStyle(color: Colors.black, fontSize: 18)),
+            Text('Daily Report',style:TextStyle(color: Colors.black, fontSize: 18)),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -42,13 +40,19 @@ class BarChartWidgetState extends State<BarChartWidget> {
                         getTitles: (double value) {
                           switch (value.toInt()) {
                             case 0:
-                              return 'January';
+                              return '23';
                             case 1:
-                              return 'February';
+                              return '24';
                             case 2:
-                              return 'March';
+                              return '25';
                             case 3:
-                              return 'April';
+                              return '26';
+                            case 4:
+                              return '27';
+                            case 5:
+                              return '28';
+                            case 6:
+                              return '29';
                             default:
                               return '';
                           }
@@ -56,9 +60,9 @@ class BarChartWidgetState extends State<BarChartWidget> {
                       ),
                       leftTitles: SideTitles(
                         showTitles: true,
-                        interval: 100000,
+                        interval: 500,
                         reservedSize: 50,
-                        getTitles: (val)=>formatter.format(val),
+                        getTitles: (val)=>val.toString(),
                         getTextStyles: (value) => const TextStyle(
                             color: Colors.black,
                             fontSize: 12),
@@ -66,26 +70,26 @@ class BarChartWidgetState extends State<BarChartWidget> {
                       ),
                     ),
                     gridData: FlGridData(
-                      show: true,
-                      checkToShowHorizontalLine: (value) => value % 100000 == 0,
-                      drawHorizontalLine: true,
-                      getDrawingHorizontalLine: (value) {
+                        show: true,
+                        checkToShowHorizontalLine: (value) => value % 500 == 0,
+                        drawHorizontalLine: true,
+                        getDrawingHorizontalLine: (value) {
 
-                       return FlLine(
-                          color: Color(0xffe7e4e4),
-                          strokeWidth: 1,
-                        );
-                      }
+                          return FlLine(
+                            color: Color(0xffe7e4e4),
+                            strokeWidth: 1,
+                          );
+                        }
                     ),
                     borderData: FlBorderData(
-                      show: true,
-                      border: Border(
-                        top: BorderSide(color: Color(0xffe7e4e4)),
-                        bottom: BorderSide(color: Color(0xffe7e4e4)),
-                      )
+                        show: true,
+                        border: Border(
+                          top: BorderSide(color: Color(0xffe7e4e4)),
+                          bottom: BorderSide(color: Color(0xffe7e4e4)),
+                        )
                     ),
-                    groupsSpace: 30,
-                    maxY: 600000,
+                    groupsSpace: 12,
+                    maxY: 2500,
                     // axisTitleData: FlAxisTitleData(
                     //   topTitle: AxisTitle(
                     //     titleText: 'Monthly Electricity Bill by Region Report'
@@ -105,19 +109,13 @@ class BarChartWidgetState extends State<BarChartWidget> {
               children: [
                 Indicator(
                   color: blue,
-                  text: 'AYA Bank',
+                  text: 'MPSS',
                   isSquare: true,
                 ),
                 SizedBox(width: 12,),
                 Indicator(
                   color: orange,
-                  text: 'CB Bank',
-                  isSquare: true,
-                ),
-                SizedBox(width: 12,),
-                Indicator(
-                  color: grey,
-                  text: 'KBZ Bank',
+                  text: 'Bank',
                   isSquare: true,
                 ),
               ],
@@ -136,23 +134,16 @@ class BarChartWidgetState extends State<BarChartWidget> {
         barsSpace: 4,
         barRods: [
           BarChartRodData(
-              y: 430000,
+              y: 600,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 430000, blue),
+                BarChartRodStackItem(0, 600, blue),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
-              y: 240000,width: width,
+              y: 900,width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 240000, orange),
-              ],
-              borderRadius: const BorderRadius.all(Radius.zero)),
-          BarChartRodData(
-              y: 200000,
-              width: width,
-              rodStackItems: [
-                BarChartRodStackItem(0, 200000, grey),
+                BarChartRodStackItem(0, 900, orange),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
         ],
@@ -162,24 +153,17 @@ class BarChartWidgetState extends State<BarChartWidget> {
         barsSpace: 4,
         barRods: [
           BarChartRodData(
-              y: 250000,
+              y: 680,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 250000, blue),
+                BarChartRodStackItem(0, 680, blue),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
-              y: 440000,
+              y: 1020,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 440000, orange),
-              ],
-              borderRadius: const BorderRadius.all(Radius.zero)),
-          BarChartRodData(
-              y: 200000,
-              width: width,
-              rodStackItems: [
-                BarChartRodStackItem(0, 200000, grey),
+                BarChartRodStackItem(0, 1020, orange),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
         ],
@@ -189,24 +173,17 @@ class BarChartWidgetState extends State<BarChartWidget> {
         barsSpace: 4,
         barRods: [
           BarChartRodData(
-              y: 350000,
+              y: 880,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 350000, blue),
+                BarChartRodStackItem(0, 880, blue),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
-              y: 180000,
+              y: 1320,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 180000, orange),
-              ],
-              borderRadius: const BorderRadius.all(Radius.zero)),
-          BarChartRodData(
-              y: 300000,
-              width: width,
-              rodStackItems: [
-                BarChartRodStackItem(0, 300000, grey),
+                BarChartRodStackItem(0, 1320, orange),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
         ],
@@ -216,24 +193,77 @@ class BarChartWidgetState extends State<BarChartWidget> {
         barsSpace: 4,
         barRods: [
           BarChartRodData(
-              y: 450000,
+              y: 840,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 450000, blue),
+                BarChartRodStackItem(0, 840, blue),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
-              y: 280000,
+              y: 1260,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 280000, orange),
+                BarChartRodStackItem(0, 1260, orange),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 4,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 1120,
+              width: width,
+              rodStackItems: [
+                BarChartRodStackItem(0, 1120, blue),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
           BarChartRodData(
-              y: 500000,
+              y: 1680,
               width: width,
               rodStackItems: [
-                BarChartRodStackItem(0, 500000, grey),
+                BarChartRodStackItem(0, 1680, orange),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 5,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 1000,
+              width: width,
+              rodStackItems: [
+                BarChartRodStackItem(0, 1000, blue),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+          BarChartRodData(
+              y: 1500,
+              width: width,
+              rodStackItems: [
+                BarChartRodStackItem(0, 1500, orange),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 6,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 720,
+              width: width,
+              rodStackItems: [
+                BarChartRodStackItem(0, 720, blue),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+          BarChartRodData(
+              y: 1080,
+              width: width,
+              rodStackItems: [
+                BarChartRodStackItem(0, 1080, orange),
               ],
               borderRadius: const BorderRadius.all(Radius.zero)),
         ],

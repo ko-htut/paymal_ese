@@ -1,5 +1,7 @@
 import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/data/myprefs.dart';
 import 'package:admin/responsive.dart';
+import 'package:admin/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -55,18 +57,25 @@ class LogoutField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SvgPicture.asset(
-          'assets/icons/logout.svg',
-          color: Color(0xffe9ecee),
-          height: 20,
-        ),
-        SizedBox(height: 4,),
-        Text('Logout',style: TextStyle(color: Color(0xffe9ecee),fontSize: 14),)
-      ],
+    return InkWell(
+      onTap: (){
+        MyPrefs.setBool('loggedIn', false).then((value) {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+        });
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            'assets/icons/logout.svg',
+            color: Color(0xffe9ecee),
+            height: 20,
+          ),
+          SizedBox(height: 4,),
+          Text('Logout',style: TextStyle(color: Color(0xffe9ecee),fontSize: 14),)
+        ],
+      ),
     );
   }
 }

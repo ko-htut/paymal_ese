@@ -34,9 +34,9 @@ dependencies:
   provider: ^5.0.0
   date_field: ^2.0.1
   intl: ^0.17.0
-  syncfusion_flutter_charts: ^19.1.69
   syncfusion_flutter_datagrid: ^19.1.69-beta
   syncfusion_flutter_core: ^19.1.69
+  shared_preferences: ^2.0.6
 
 dev_dependencies:
   flutter_test:
