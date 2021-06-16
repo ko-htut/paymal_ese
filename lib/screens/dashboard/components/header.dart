@@ -31,7 +31,7 @@ class Header extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 32),
               child: Text(
-                "MPSS Admin Portal",
+                "MPSS Management Portal",
                 style: TextStyle(color: Color(0xffe9ecee),fontSize: 26,fontWeight: FontWeight.bold),
               ),
             ),

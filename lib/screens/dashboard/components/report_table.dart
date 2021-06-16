@@ -1,7 +1,8 @@
 import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart' hide DataPagerDelegate;
+import 'package:syncfusion_flutter_datagrid/datagrid.dart'
+    hide DataPagerDelegate;
 
 class ReportTable extends StatefulWidget {
   const ReportTable({Key? key}) : super(key: key);
@@ -32,7 +33,6 @@ class _ReportTableState extends State<ReportTable> {
             columnWidthMode: ColumnWidthMode.lastColumnFill,
             stackedHeaderRows: _getStackedHeaderRows(),
             columns: getGridColumn(),
-
             allowSwiping: true,
           ),
         ),
@@ -43,9 +43,8 @@ class _ReportTableState extends State<ReportTable> {
               border: Border(
                   top: BorderSide(
                       width: .5,
-                      color: SfTheme.of(context)
-                          .dataGridThemeData
-                          .gridLineColor),
+                      color:
+                          SfTheme.of(context).dataGridThemeData.gridLineColor),
                   bottom: BorderSide.none,
                   left: BorderSide.none,
                   right: BorderSide.none)),
@@ -54,27 +53,25 @@ class _ReportTableState extends State<ReportTable> {
       ],
     );
   }
+
   Widget _buildDataPager() {
     return SfDataPagerTheme(
       data: SfDataPagerThemeData(
         // brightness: model.themeData.brightness,
         // selectedItemColor: model.backgroundColor,
-        selectedItemColor: Color(0xff00457c),
+        selectedItemColor: Color(0xff00447b),
         itemBorderRadius: BorderRadius.zero,
         itemColor: Colors.black54,
       ),
       child: SfDataPager(
         delegate: reportDataSource,
-
-        pageCount:
-        reportDataSource._employeeData.length / reportDataSource._rowsPerPage,
+        pageCount: reportDataSource._employeeData.length /
+            reportDataSource._rowsPerPage,
         direction: Axis.horizontal,
       ),
     );
   }
 }
-
-
 
 Widget _getWidgetForStackedHeaderCell(String title) {
   return Container(
@@ -115,11 +112,11 @@ List<ReportModel> getReportModel() {
         township: 'Bahan',
         meterNo: 'F-34798',
         barcodeNo: '1811067754',
-        meterConsumingAmount: '10,000',
+        meterConsumingAmount: '12,500',
         scCor: '200',
         scMPSS: '300',
         scTotal: '500',
-        netAmount: '10,500',
+        netAmount: '12,500',
         paymentMethod: 'AYA',
         statusCode: '001',
         status: 'SUCCESS',
@@ -132,7 +129,7 @@ List<ReportModel> getReportModel() {
         corporationId: 'PM006',
         corporationName: 'Paymal',
         serviceRegion: 'MESC(Mandalay..Bill)',
-        township: 'Chan Aye Thar San',
+        township: 'Mandalay',
         meterNo: '1410734',
         barcodeNo: '363-008047',
         meterConsumingAmount: '20,000',
@@ -163,7 +160,147 @@ List<ReportModel> getReportModel() {
         paymentMethod: 'CB',
         statusCode: '001',
         status: 'SUCCESS',
-        reason: '-')
+        reason: '-'),
+    ReportModel(
+        id: 4,
+        startDate: '16/06/2021\n09:40:59',
+        endDate: '16/06/2021\n09:43:59',
+        transactionId: 'AD89013',
+        corporationId: 'PM006',
+        corporationName: 'Paymal',
+        serviceRegion: '(YESC) Yangon Electricity Bill',
+        township: 'Yangon',
+        meterNo: 'C-34801',
+        barcodeNo: '2101069759',
+        meterConsumingAmount: '23,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'Paymal',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),
+    ReportModel(
+        id: 5,
+        startDate: '16/06/2021\n08:42:59',
+        endDate: '16/06/2021\n08:44:59',
+        transactionId: 'AD89014',
+        corporationId: 'CB006',
+        corporationName: 'CB',
+        serviceRegion: '(YESC) Yangon Electricity Billl',
+        township: 'Yangon',
+        meterNo: 'F-34802',
+        barcodeNo: '62412107',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),
+    ReportModel(
+        id: 6,
+        startDate: '16/06/2021\n08:33:59',
+        endDate: '16/06/2021\n08:34:59',
+        transactionId: 'AD89015',
+        corporationId: 'PM005',
+        corporationName: 'Paymal',
+        serviceRegion: '(YESC) Yangon Electricity Billl',
+        township: 'Yangon',
+        meterNo: 'M-54803',
+        barcodeNo: '626121014',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),  
+        ReportModel(
+        id: 7,
+        startDate: '16/06/2021\n08:33:59',
+        endDate: '16/06/2021\n08:34:59',
+        transactionId: 'AD89029',
+        corporationId: 'PM005',
+        corporationName: 'Paymal',
+        serviceRegion: '(ESE) Nay Pyi Taw Electricity Bill',
+        township: 'Nay Pyi Taw',
+        meterNo: 'M-54803',
+        barcodeNo: '626121014',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'), 
+         ReportModel(
+        id: 8,
+        startDate: '16/06/2021\n08:33:59',
+        endDate: '16/06/2021\n08:34:59',
+        transactionId: 'AD89028',
+        corporationId: 'PM005',
+        corporationName: 'Paymal',
+        serviceRegion: '(ESE) Mon Electricity Bill',
+        township: 'MLM',
+        meterNo: 'N-34816',
+        barcodeNo: '6221210165',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),  
+        ReportModel(
+        id: 9,
+        startDate: '13/06/2021\n09:41:59',
+        endDate: '13/06/2021\n09:42:00',
+        transactionId: 'AD89028',
+        corporationId: 'CB006',
+        corporationName: 'CB',
+        serviceRegion: '(ESE) Magway Electricity Bill',
+        township: 'Magway',
+        meterNo: 'F-34815',
+        barcodeNo: '6241210130',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),   
+         ReportModel(
+        id: 10,
+        startDate: '13/06/2021\n09:41:59',
+        endDate: '13/06/2021\n09:42:00',
+        transactionId: 'AD89025',
+        corporationId: 'CB006',
+        corporationName: 'CB',
+        serviceRegion: '(ESE) Kaya Electricity Bill',
+        township: 'Kaya',
+        meterNo: 'M-34013',
+        barcodeNo: '6221210111',
+        meterConsumingAmount: '30,000',
+        scCor: '200',
+        scMPSS: '300',
+        scTotal: '500',
+        netAmount: '30,500',
+        paymentMethod: 'CB',
+        statusCode: '001',
+        status: 'SUCCESS',
+        reason: '-'),  
   ];
 }
 
@@ -257,7 +394,6 @@ class ReportDataSource extends DataGridSource {
               DataGridCell<int>(columnName: 'id', value: e.id),
               DataGridCell<String>(columnName: 'startDate', value: e.startDate),
               DataGridCell<String>(columnName: 'endDate', value: e.endDate),
-              DataGridCell<String>(columnName: 'endDate', value: e.endDate),
               DataGridCell<String>(
                   columnName: 'transactionId', value: e.transactionId),
               DataGridCell<String>(
@@ -281,17 +417,18 @@ class ReportDataSource extends DataGridSource {
               DataGridCell<String>(
                   columnName: 'statusCode', value: e.statusCode),
               DataGridCell<String>(columnName: 'status', value: e.status),
+              DataGridCell<String>(columnName: 'reason', value: e.reason),
             ]))
         .toList();
   }
 
   List<DataGridRow> _employeeData = [];
-  final int _rowsPerPage=3;
+  final int _rowsPerPage = 3;
 
   @override
   List<DataGridRow> get rows => _employeeData;
 
-  int realIndex=-1;
+  int realIndex = -1;
 
   @override
   DataGridRowAdapter buildRow(DataGridRow row) {
@@ -299,15 +436,15 @@ class ReportDataSource extends DataGridSource {
 
     return DataGridRowAdapter(
         cells: List.generate(list.length, (index) {
-          if(index==0){
-            realIndex+=1;
-          }
-          Color rowColor=Color(0xffdfdfdf);
-          if(realIndex.isOdd){
-            rowColor=Color(0xffefefef);
-          }else{
-            rowColor=Color(0xffdfdfdf);
-          }
+      if (index == 0) {
+        realIndex += 1;
+      }
+      Color rowColor = Color(0xffdfdfdf);
+      if (realIndex.isOdd) {
+        rowColor = Color(0xffefefef);
+      } else {
+        rowColor = Color(0xffdfdfdf);
+      }
       return Container(
         alignment: Alignment.center,
         color: rowColor,
