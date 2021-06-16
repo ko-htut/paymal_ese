@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Container(
                               child: Text(
-                                'user name',
+                                'User name',
                                 style:
                                     _textStyle(18, fontWeight: FontWeight.bold),
                               ),
