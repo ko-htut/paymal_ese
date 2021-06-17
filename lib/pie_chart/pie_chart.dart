@@ -25,7 +25,7 @@ class PieChart2State extends State {
           ),
           Container(
             width: double.infinity,
-            height: 180,
+            height: 250,
             child: PieChart(
               PieChartData(
                   pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
@@ -168,7 +168,7 @@ class PieChart2State extends State {
     return List.generate(11, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 18.0 : 13.0;
-      final radius = isTouched ? 90.0 : 80.0;
+      final radius = isTouched ? 120.0 : 100.0;
       switch (i) {
         case 0:
           return PieChartSectionData(
