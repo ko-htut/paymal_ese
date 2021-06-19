@@ -110,7 +110,7 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
-            title: "Public utilitiesn",
+            title: "Public Utilities",
             selected: indexProvider.index == 8,
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
