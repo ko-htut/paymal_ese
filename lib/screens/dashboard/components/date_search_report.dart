@@ -167,7 +167,7 @@ class DateSearchReport extends StatelessWidget {
                   height: 32,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text(' Download'),
+                    child: Text(' Download '),
                     style: ElevatedButton.styleFrom(primary: Color(0xff00447b)),
                   ),
                 )
